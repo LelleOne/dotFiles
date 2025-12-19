@@ -37,6 +37,7 @@ return {
                 "neocmake",
                 "pylsp",
                 "zls",
+                "asm_lsp",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
