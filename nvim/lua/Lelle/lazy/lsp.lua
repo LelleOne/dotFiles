@@ -17,6 +17,7 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
+                "clang-format"
             }
         })
         local cmp = require('cmp')
@@ -38,12 +39,24 @@ return {
                 "pylsp",
                 "zls",
                 "asm_lsp",
+                "gopls",
+                "hyprls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
+                end,
+
+                clangd = function()
+                    require("lspconfig").clangd.setup({
+                        capabilities = capabilities,
+                        cmd = {
+                            "clangd",
+                            "--std=c++23",
+                        },
+                    })
                 end,
 
                 zls = function()

@@ -1,5 +1,4 @@
 function Bg()
-    
     vim.cmd.colorscheme("rose-pine")
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -7,7 +6,6 @@ function Bg()
 end
 
 return {
-
     "rose-pine/neovim",
         name = "rose-pine",
         config = function()
